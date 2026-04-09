@@ -1,0 +1,4 @@
+input_dir: /data/zhangziqi/stag4d/STAG4D_motion_only/dataset/jump/masks
+image_ext: png
+zero_pad: 3
+copy: False

@@ -1,0 +1,144 @@
+device: cuda
+gui: False
+
+### Input
+path:
+video_path: /data/zhangziqi/stag4d/STAG4D_motion_only/dataset/ball/frames
+mask_path: /data/zhangziqi/stag4d/STAG4D_motion_only/dataset/ball/masks
+canonical_dir:
+canonical_ply: /data/zhangziqi/stag4d/STAG4D_motion_only/canonical/ball/012_f.ply
+canonical_frame_idx: 6
+resume_dynamic: False
+
+### Output
+outdir: logs
+save_path: ball
+save_interval: 500
+valid_interval: 200
+traj_vis_interval: 200
+traj_vis_dir: ball_traj_vis
+traj_render_fov_scale: 2.8
+traj_render_size: 512
+
+### Camera
+elevation: 0
+radius: 2
+fovy: 49.1
+ref_size: 512
+
+### Training
+iters: 3000
+batch_size: 4
+train_canonical: False
+lambda_rgb: 10000
+lambda_alpha: 2500
+traj_rgb_factor: 0.25
+traj_alpha_factor: 0.5
+traj_center_factor: 5.0
+traj_area_factor: 0.5
+boundary_rgb_factor: 0.5
+boundary_alpha_factor: 1.0
+boundary_center_factor: 1.5
+boundary_area_factor: 0.5
+hidden_rgb_factor: 0.1
+hidden_alpha_factor: 0.5
+hidden_center_factor: 1.5
+hidden_area_factor: 0.25
+boundary_smoothness_factor: 0.35
+hidden_smoothness_factor: 0.15
+border_smoothness_scale: 0.75
+visibility_smoothness_floor: 0.2
+boundary_event_boost: 1.0
+boundary_direction_factor: 0.5
+boundary_observation_floor: 0.1
+hidden_bridge_hermite_factor: 0.35
+hidden_bridge_endpoint_factor: 1.0
+hidden_bridge_trend_factor: 0.5
+lambda_tv: 1
+scale_loss_ratio: 7.5
+motion_debug_interval: 100
+relative_visible_ratio: 0.6
+relative_hidden_ratio: 0.15
+relative_visible_score: 0.7
+relative_hidden_score: 0.2
+border_touch_boundary: 0.10
+border_touch_hidden: 0.20
+hidden_frame_sample_ratio: 0.2
+boundary_frame_sample_ratio: 1.5
+
+### Dynamic curriculum
+stage_traj_steps: 800
+traj_boundary_start_ratio: 0.4
+traj_hidden_start_ratio: 0.6
+traj_global_smooth_start_ratio: 0.85
+traj_boundary_smooth_factor: 0.1
+traj_hidden_smooth_factor: 1.0
+traj_boundary_reliable_threshold: 0.2
+traj_boundary_min_area: 0.05
+traj_boundary_max_border: 0.35
+traj_boundary_anchor_factor: 2.0
+traj_segment_transition_factor: 0.25
+traj_global_transition_factor: 0.2
+traj_global_smooth_factor: 0.2
+traj_visible_smooth_factor: 0.02
+traj_boundary_area_factor: 1.0
+stage_ode_steps: 1600
+stage_hex_steps: 2400
+high_frame_ratio: 0.3
+mid_frame_ratio: 0.4
+
+### Dynamics losses
+ode_steps: 8
+vmax: 1.0
+opacity_vmax: 2.0
+anchor_depth_mode: fixed
+hex_affects_xyz: true
+enable_fov_gating: true
+fov_gate_margin: 0.02
+fov_gate_scale_mult: 3.0
+lambda_vel: 0.0001
+lambda_curv: 0.002
+lambda_anchor: 0.000
+lambda_cycle_sparse: 0.0001
+lambda_ode_center: 20.0
+lambda_ode_area: 1.0
+lambda_traj_center: 50.0
+lambda_traj_boundary: 20.0
+lambda_traj_smooth: 5.0
+lambda_segment_transition: 10.0
+lambda_canonical_traj: 10.0
+lambda_hidden_bridge: 50.0
+lambda_hidden_velocity: 10.0
+lambda_hidden_energy: 2.0
+lambda_hidden_damping: 0.0
+hidden_damping_factor: 1.0
+hidden_damping_floor: 0.25
+
+### Deformation point selection
+deformation_update_start_iter: 1500
+deformation_update_interval: 200
+deformation_threshold: 0.0005
+
+### Gaussian splatting
+num_pts: 10000
+sh_degree: 0
+position_lr_init: 0.0002
+position_lr_final: 0.000002
+position_lr_delay_mult: 0.01
+position_lr_max_steps: 2000
+position_lr_max_steps2: 5000
+feature_lr: 0.005
+opacity_lr: 0.02
+scaling_lr: 0.01
+rotation_lr: 0.002
+
+deformation_lr_init: 0.001
+deformation_lr_final: 0.0001
+deformation_lr_delay_mult: 0.02
+grid_lr_init: 0.001
+grid_lr_final: 0.0001
+
+percent_dense: 0.1
+time_smoothness_weight: 0.1
+plane_tv_weight: 0.01
+l1_time_planes: 0.01

@@ -1,0 +1,7 @@
+video: /data/zhangziqi/stag4d/STAG4D_motion_only/dataset/jump/jump_ng.mp4
+output: /data/zhangziqi/stag4d/STAG4D_motion_only/dataset/jump/frames
+image_ext: png
+start: 0
+end:
+stride: 1
+zero_pad: 3

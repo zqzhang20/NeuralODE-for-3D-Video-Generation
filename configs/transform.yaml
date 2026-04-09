@@ -1,0 +1,11 @@
+input: /data/zhangziqi/stag4d/STAG4D_motion_only/canonical/jump/000_f.ply
+output: /data/zhangziqi/stag4d/STAG4D_motion_only/canonical/jump/000_f_stag4d.ply
+
+from_system: sharp
+to_system: stag4d_rectified
+
+about_center: false
+scale: 1.0
+translate: [0.0, 0.0, 0.0]
+transform_normals: false
+post_align: center_z_to_positive_double_distance
