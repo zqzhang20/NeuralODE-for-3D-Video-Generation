@@ -1,0 +1,18 @@
+input_ply: /data/zhangziqi/stag4d/STAG4D_motion_only/canonical/jump/000.ply
+input_image: /data/zhangziqi/stag4d/STAG4D_motion_only/dataset/jump/frames/000.png
+output_ply: 000_f.ply
+
+# Leave empty to use the original input image size directly.
+image_width:
+image_height:
+radius: 2.0
+fovy: 49.1
+elevation: 0.0
+azimuth: 0.0
+
+red_threshold: 80
+dominance: 40
+black_threshold: 30
+
+target_points: 5000
+random_seed: 0
